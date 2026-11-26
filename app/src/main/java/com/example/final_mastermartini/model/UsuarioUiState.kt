@@ -1,9 +1,5 @@
 package com.example.final_mastermartini.model
 
-/**
- * Errores individuales de validación del formulario de registro.
- * Un valor null significa que el campo es válido.
- */
 data class UsuarioErrores(
     val nombre: String? = null,
     val handle: String? = null,
@@ -22,10 +18,7 @@ data class UsuarioErrores(
         ).isNotEmpty()
 }
 
-/**
- * Estado del formulario de registro. Contiene los campos tal como los escribe el usuario
- * (incluida la clave, que no forma parte del modelo [Usuario]).
- */
+
 data class UsuarioUiState(
     val nombre: String = "",
     val handle: String = "",
@@ -40,7 +33,6 @@ data class UsuarioUiState(
     val aceptaTerminos: Boolean = true,
     val errores: UsuarioErrores = UsuarioErrores()
 ) {
-    /** Convierte el formulario en el modelo de dominio [Usuario]. */
     fun aUsuario(): Usuario = Usuario(
         nombre = nombre.trim(),
         correo = correo.trim(),
